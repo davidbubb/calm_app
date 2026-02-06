@@ -10,11 +10,20 @@
   let mandarinScript = localStorage.getItem('mandarinScript') || 'simplified'; // 'simplified' or 'traditional'
   let reducedMotion = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || false;
   let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+  let theme = localStorage.getItem('theme') || 'light';
 
-  // persist script preference
   function setMandarinScript(s) {
     mandarinScript = s;
     localStorage.setItem('mandarinScript', s);
+  }
+
+  function setTheme(t) {
+    theme = t;
+    localStorage.setItem('theme', t);
+    // update body class
+    if (typeof document !== 'undefined') {
+      document.body.className = t === 'light' ? '' : `theme-${t}`;
+    }
   }
 
   function toggleFavorite(id) {
@@ -145,6 +154,12 @@
     <div class="controls">
       <button on:click={prev} aria-label="Previous phrase">← Prev</button>
       <button on:click={next} aria-label="Next phrase">Next →</button>
+    </div>
+
+    <div class="theme-controls">
+      <button class="theme-btn" class:active={theme === 'light'} on:click={() => setTheme('light')}>Calm</button>
+      <button class="theme-btn" class:active={theme === 'ocean'} on:click={() => setTheme('ocean')}>Ocean</button>
+      <button class="theme-btn" class:active={theme === 'sunset'} on:click={() => setTheme('sunset')}>Sunset</button>
     </div>
 
   </section>
