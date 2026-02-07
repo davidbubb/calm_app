@@ -11,6 +11,7 @@
   let reducedMotion = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || false;
   let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
   let theme = localStorage.getItem('theme') || 'light';
+  let animationsEnabled = localStorage.getItem('animationsEnabled') !== 'false'; // default to true
 
   function setMandarinScript(s) {
     mandarinScript = s;
@@ -20,9 +21,21 @@
   function setTheme(t) {
     theme = t;
     localStorage.setItem('theme', t);
-    // update body class
+    updateBodyClass();
+  }
+
+  function toggleAnimations() {
+    animationsEnabled = !animationsEnabled;
+    localStorage.setItem('animationsEnabled', animationsEnabled.toString());
+    updateBodyClass();
+  }
+
+  function updateBodyClass() {
     if (typeof document !== 'undefined') {
-      document.body.className = t === 'light' ? '' : `theme-${t}`;
+      let classes = [];
+      if (theme !== 'light') classes.push(`theme-${theme}`);
+      if (!animationsEnabled) classes.push('animations-disabled');
+      document.body.className = classes.join(' ');
     }
   }
 
@@ -75,6 +88,8 @@
     window.addEventListener('keydown', onKey);
     // ensure favorites loaded
     favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    // apply initial body class
+    updateBodyClass();
     // small: prefetch next
     prefetchNext();
     return () => window.removeEventListener('keydown', onKey);
@@ -117,6 +132,13 @@
             ☆ Favorite
           {/if}
         </button>
+        <button class="animation-toggle" on:click={toggleAnimations} aria-label="Toggle animations" title={animationsEnabled ? 'Disable animations' : 'Enable animations'}>
+          {#if animationsEnabled}
+            ✨ Animations On
+          {:else}
+            ⏸️ Animations Off
+          {/if}
+        </button>
       </div>
     </div>
 
@@ -157,9 +179,15 @@
     </div>
 
     <div class="theme-controls">
-      <button class="theme-btn" class:active={theme === 'light'} on:click={() => setTheme('light')}>Calm</button>
-      <button class="theme-btn" class:active={theme === 'ocean'} on:click={() => setTheme('ocean')}>Ocean</button>
-      <button class="theme-btn" class:active={theme === 'sunset'} on:click={() => setTheme('sunset')}>Sunset</button>
+      <button class="theme-btn" class:active={theme === 'light'} on:click={() => setTheme('light')}>☀️ Light</button>
+      <button class="theme-btn" class:active={theme === 'dark'} on:click={() => setTheme('dark')}>🌙 Dark</button>
+      <button class="theme-btn" class:active={theme === 'ocean'} on:click={() => setTheme('ocean')}>🌊 Ocean</button>
+      <button class="theme-btn" class:active={theme === 'sunset'} on:click={() => setTheme('sunset')}>🌅 Sunset</button>
+      <button class="theme-btn" class:active={theme === 'purple'} on:click={() => setTheme('purple')}>💜 Purple</button>
+      <button class="theme-btn" class:active={theme === 'neon'} on:click={() => setTheme('neon')}>⚡ Neon</button>
+      <button class="theme-btn" class:active={theme === 'tropical'} on:click={() => setTheme('tropical')}>🌴 Tropical</button>
+      <button class="theme-btn" class:active={theme === 'cherry'} on:click={() => setTheme('cherry')}>🌸 Cherry</button>
+      <button class="theme-btn" class:active={theme === 'aurora'} on:click={() => setTheme('aurora')}>✨ Aurora</button>
     </div>
 
   </section>
