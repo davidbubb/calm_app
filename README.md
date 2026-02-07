@@ -1,4 +1,4 @@
-# CalmPhrases Prototype
+# Caoren
 
 Run locally:
 
@@ -16,7 +16,7 @@ Deploy to GitHub Pages:
 2. In GitHub, go to Settings → Pages.
 3. Under “Build and deployment,” set Source to “GitHub Actions.”
 4. Wait for the workflow to finish; your site will be at:
-   https://davidbubb.github.io/calm_app/
+   https://davidbubb.github.io/caoren/
 
 Notes:
 - TTS uses your browser's Web Speech API. Cantonese voice availability varies by browser/OS — if none available, the browser may fallback to a Mandarin voice.
