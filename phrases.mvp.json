@@ -77,7 +77,7 @@
       "mandarin": {
         "characters_simplified": "此刻就是安全的",
         "characters_traditional": "此刻就是安全的",
-        "pinyin": "cǐ k�� jiù shì ān quán de"
+        "pinyin": "cǐ kè jiù shì ān quán de"
       },
       "cantonese": {
         "characters_traditional": "此刻就是安全的",
@@ -201,7 +201,7 @@
     {
       "id": "phrase-012",
       "mandarin": {
-        "characters_simplified": "���气放下",
+        "characters_simplified": "呼气放下",
         "characters_traditional": "呼氣放下",
         "pinyin": "hū qì fàng xià"
       },
@@ -545,11 +545,11 @@
       "mandarin": {
         "characters_simplified": "如果我们从不直面它，就无法解决它",
         "characters_traditional": "如果我們從不直面它，就無法解決它",
-        "pinyin": "Rúguǒ wǒmen cóng bù zhímiàn tā, jiù wúfǎ jiějué tā."
+        "pinyin": "rú guǒ wǒ men cóng bù zhí miàn tā, jiù wú fǎ jiě jué tā"
       },
       "cantonese": {
         "characters_traditional": "如果我哋從來唔去面對佢，就冇辦法解決佢",
-        "jyutping": "Jyu4 gwo2 ngo5 dei6 cung4 loi4 m4 heoi3 min6 deoi3 keoi5, zau6 mou5 baan6 faat3 gaai2 kyut3 keoi5"
+        "jyutping": "jyu4 gwo2 ngo5 dei6 cung4 loi4 m4 heoi3 min6 deoi3 keoi5, zau6 mou5 baan6 faat3 gaai2 kyut3 keoi5"
       },
       "english": "We can't fix it if we never face it.",
       "context": "A reminder to tackle problems head-on.",
@@ -563,11 +563,11 @@
       "mandarin": {
         "characters_simplified": "放过自己",
         "characters_traditional": "放過自己",
-        "pinyin": "Fàngguò zìjǐ"
+        "pinyin": "fàng guò zì jǐ"
       },
       "cantonese": {
         "characters_traditional": "放過自己",
-        "jyutping": "Fong3 gwo3 zi6 gei2"
+        "jyutping": "fong3 gwo3 zi6 gei2"
       },
       "english": "Let yourself go.",
       "context": "A reminder to let go of stress and tension.",
